@@ -1,0 +1,84 @@
+
+        .gradient-text {
+            background: linear-gradient(90deg, #8b0000, #4b0082);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8b0000, transparent);
+        }
+        .tech-badge {
+            transition: all 0.3s ease;
+            background-color: #1a1a1a;
+            color: #e6e6e6;
+            border: 1px solid #4b0082;
+        }
+        .tech-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(139, 0, 0, 0.3);
+            background-color: #2a2a2a;
+        }
+        body {
+            background-color: #121212;
+            color: #e6e6e6;
+        }
+        .bg-white {
+            background-color: #1a1a1a !important;
+            color: #e6e6e6;
+        }
+        .bg-gray-50 {
+            background-color: #121212 !important;
+        }
+        .bg-blue-50 {
+            background-color: #1a1a1a !important;
+        }
+        .bg-blue-100 {
+            background-color: #2a2a2a !important;
+        }
+        .text-gray-600, .text-gray-500, .text-gray-400 {
+            color: #b3b3b3 !important;
+        }
+        .text-gray-800 {
+            color: #e6e6e6 !important;
+        }
+        .border-gray-300 {
+            border-color: #4b0082 !important;
+        }
+        .shadow-sm {
+            box-shadow: 0 1px 3px rgba(139, 0, 0, 0.3) !important;
+        }
+        .shadow-md {
+            box-shadow: 0 4px 6px rgba(139, 0, 0, 0.3) !important;
+        }
+        .shadow-xl {
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.3) !important;
+        }
+        .bg-blue-500 {
+            background-color: #8b0000 !important;
+        }
+        .bg-blue-600 {
+            background-color: #6b0000 !important;
+        }
+        .bg-blue-700 {
+            background-color: #5b0000 !important;
+        }
+        .text-blue-600 {
+            color: #8b0000 !important;
+        }
+        .text-blue-800 {
+            color: #6b0000 !important;
+        }
+        .bg-blue-200 {
+            background-color: #4b0082 !important;
+        }
+        .bg-gradient-to-r {
+            background-image: linear-gradient(to right, #1a1a1a, #2a2a2a) !important;
+        }
+        .bg-gray-800 {
+            background-color: #0a0a0a !important;
+        }
+        .border-gray-700 {
+            border-color: #4b0082 !important;
+        }

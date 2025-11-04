@@ -53,29 +53,24 @@ color: transparent;
 height: 2px;
 background: linear-gradient(90deg, transparent, #ff0000, transparent);
 }
-.tech-card {
+.tech-card, .soft-card {
 transition: all 0.3s ease;
 background-color: #2d2d2d;
 color: #ffffff;
 border: 1px solid #990000;
 cursor: pointer;
 }
-.tech-card:hover {
-transform: translateY(-2px);
-box-shadow: 0 4px 6px rgba(255, 0, 0, 0.3);
-background-color: #3d3d2d;
-}
 .soft-card {
-transition: all 0.3s ease;
-background-color: #2d2d2d;
-color: #ffffff;
 border: 1px solid #800080;
-cursor: pointer;
 }
-.soft-card:hover {
+.tech-card:hover, .soft-card:hover {
 transform: translateY(-2px);
 box-shadow: 0 4px 6px rgba(255, 0, 0, 0.3);
 background-color: #3d3d2d;
+}
+.tech-card:focus, .soft-card:focus {
+outline: none;
+box-shadow: 0 0 0 2px #ff0000;
 }
 body {
 background-color: #000000;
@@ -149,10 +144,15 @@ color: #ff0000 !important;
 background-color: #3d3d3d !important;
 }
 .logo-sesi{
-width: 50px;
-height: 50px;
+width: 150px;
+height: 150px;
 }
 .logos{
 width: 48px;
 height: 48px;
+}
+.logo-aws{
+width: 150px;
+height: 150px;
+
 }

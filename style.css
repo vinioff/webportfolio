@@ -154,4 +154,60 @@ height: 48px;
 .logo-aws{
 width: 130px;
 height: 130px;
+
+}
+/* ------------------ RESPONSIVIDADE DAS CERTIFICAÇÕES ------------------ */
+#education .space-y-4 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  #education .space-y-4 > div {
+    flex-direction: column; /* Empilha imagem e texto no celular */
+    align-items: center;
+    text-align: center;
+  }
+
+  #education .space-y-4 img {
+    width: 90px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  #education .space-y-4 a h4 {
+    font-size: 1rem;
+  }
+
+  #education .space-y-4 a p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ------------------ RESPONSIVIDADE DA SEÇÃO DE CONTATO ------------------ */
+#contact .bg-gray-800 {
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+@media (max-width: 768px) {
+  #contact .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #contact .bg-gray-800 {
+    width: 90%;
+  }
+
+  #contact img {
+    width: 80%;
+    margin-top: 1rem;
+    border-radius: 1.5rem;
+  }
 }

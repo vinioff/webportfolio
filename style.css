@@ -211,3 +211,29 @@ height: 130px;
     border-radius: 1.5rem;
   }
 }
+/* ------------------ AJUSTE DA IMAGEM DE CONTATO ------------------ */
+#contact .relative {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 3 / 4; /* Mantém proporção vertical e evita corte */
+}
+
+#contact .relative img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Preenche a área da box sem distorcer */
+  object-position: center; /* Centraliza o rosto */
+  border-radius: 1.5rem;
+}
+
+/* No mobile, mantém responsivo e proporcional */
+@media (max-width: 768px) {
+  #contact .relative {
+    max-width: 260px;
+    aspect-ratio: 3 / 4;
+  }
+
+  #contact .relative img {
+    border-radius: 1.25rem;
+  }
+}

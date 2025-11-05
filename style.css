@@ -359,4 +359,19 @@ height: 130px;
   }
 }
 
+#contact .bg-gray-800 .space-y-4 .flex.items-start > div p {
+overflow-wrap: break-word;
+}
+@media (max-width: 768px) {
+#contact .grid {
+text-align: center;
+}
+#contact .bg-gray-800 .space-y-4 .flex.items-start {
+justify-content: center;
+text-align: center;
+}
+#contact .bg-gray-800 p {
+font-size: 0.875rem; /* Reduz ligeiramente o tamanho da fonte no mobile para melhor ajuste */
+}
+}
 

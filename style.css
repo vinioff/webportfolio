@@ -144,8 +144,8 @@ color: #ff0000 !important;
 background-color: #3d3d3d !important;
 }
 .logo-sesi{
-width: 150px;
-height: 150px;
+width: 140px;
+height: 140px;
 }
 .logos{
 width: 48px;
@@ -224,6 +224,7 @@ height: 130px;
   object-fit: cover; /* Preenche a área da box sem distorcer */
   object-position: center; /* Centraliza o rosto */
   border-radius: 1.5rem;
+  margin: 0px;
 }
 
 /* No mobile, mantém responsivo e proporcional */
@@ -237,3 +238,126 @@ height: 130px;
     border-radius: 1.25rem;
   }
 }
+
+/* ===================== AJUSTES: Contato (alinhamento) ===================== */
+/* Garante que os itens fiquem alinhados verticalmente e com espaçamento consistente */
+#contact .bg-gray-800 {
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+/* Alinha ícone e conteúdo no centro verticalmente e cria gap uniforme */
+#contact .bg-gray-800 .space-y-4 .flex.items-start {
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Padroniza tamanho do ícone (feather) para alinhamento preciso */
+#contact .bg-gray-800 .space-y-4 i[data-feather] {
+  min-width: 32px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0; /* remove deslocamento por mt-1 */
+}
+
+/* Remove margens extras dentro das colunas de texto para evitar desalinhamento */
+#contact .bg-gray-800 .space-y-4 .flex.items-start > div {
+  margin: 0;
+}
+
+/* No mobile, mantém o card centralizado e o texto legível.
+   Mantemos os ícones à esquerda do texto (não centralizamos os ícones em cima). */
+@media (max-width: 768px) {
+  #contact .bg-gray-800 { width: 92%; padding: 1.25rem; }
+  #contact .bg-gray-800 .space-y-4 .flex.items-start {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  /* Se quiser texto centralizado no bloco todo (opcional), descomente:
+  #contact .grid { text-align: center; }
+  #contact .bg-gray-800 .space-y-4 .flex.items-start { justify-content: center; }
+  */
+}
+
+/* ===================== AJUSTES: Formação (mobile + estética) ===================== */
+/* Tornar a timeline amigável no mobile — empilhar os blocos, centralizar bolinha numerada */
+@media (max-width: 768px) {
+
+  /* Cada item da timeline vira coluna e centraliza conteúdo */
+  #education .relative .mb-8 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 0.6rem;
+  }
+
+  /* Centraliza a bolinha com número e reduz o tamanho para ficar proporcional */
+  #education .relative .z-20 {
+    margin: 0.4rem auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(255, 0, 0, 0.12);
+  }
+  #education .relative .z-20 h1 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  /* Os cards ocupam 100% do espaço disponível (com um max-width para não ficarem enormes) */
+  #education .relative .bg-gray-800 {
+    width: 100% !important;
+    max-width: 520px;
+    margin: 0.25rem auto;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+  }
+
+  /* Ajusta o logo do SESI/SENAI para não estourar o card */
+  #education .relative .logo-sesi, 
+  #education .relative .logo-aws {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0.4rem auto 0.2rem auto;
+  }
+
+  /* Texto dentro do card — tamanho e espaçamento mais agradável no mobile */
+  #education .relative .bg-gray-800 h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+  #education .relative .bg-gray-800 p {
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* Espaçamento entre os itens da timeline */
+  #education .max-w-4xl .space-y-8 {
+    gap: 1rem;
+  }
+}
+
+/* ===================== Pequenas melhorias visuais ===================== */
+/* Melhora contraste e separação entre cards no mobile */
+@media (max-width: 480px) {
+  #education .relative .bg-gray-800, 
+  #contact .bg-gray-800 {
+    padding: 0.9rem;
+  }
+  #contact .bg-gray-800 .space-y-4 i[data-feather] {
+    min-width: 28px;
+    min-height: 28px;
+  }
+}
+
+

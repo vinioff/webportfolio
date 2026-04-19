@@ -98,16 +98,24 @@
     <header class="bg-black shadow-sm sticky top-0 z-50 border-b border-red-900">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold gradient-text">Vinicius Vieira</h1>
-            <nav class="hidden md:flex space-x-8">
+            <nav id="desktopNav" class="hidden md:flex space-x-8">
                 <a href="#about" class="hover:text-red-400 transition">Sobre</a>
                 <a href="#skills" class="hover:text-red-400 transition">Habilidades</a>
                 <a href="#projects" class="hover:text-red-400 transition">Projetos</a>
                 <a href="#education" class="hover:text-red-400 transition">Formação</a>
                 <a href="#contact" class="hover:text-red-400 transition">Contato</a>
             </nav>
-            <button class="md:hidden" aria-label="Abrir menu">
+            <button id="menuBtn" class="md:hidden" aria-label="Abrir menu">
                 <i data-feather="menu"></i>
             </button>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-red-900 px-4 pb-4">
+            <a href="#about" class="block py-2 hover:text-red-400 transition">Sobre</a>
+            <a href="#skills" class="block py-2 hover:text-red-400 transition">Habilidades</a>
+            <a href="#projects" class="block py-2 hover:text-red-400 transition">Projetos</a>
+            <a href="#education" class="block py-2 hover:text-red-400 transition">Formação</a>
+            <a href="#contact" class="block py-2 hover:text-red-400 transition">Contato</a>
         </div>
     </header>
 
@@ -203,17 +211,17 @@
                         <span class="text-lg font-medium text-white">MySQL</span>
                     </div>
                     <div class="tech-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 flex items-center justify-between">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFUklEQVR4nO1X609UVxDffmqbvr/08Re0H9p+6UOT1rRSHw0JD4sFTSs1sVKqUi17H8sjohVx995zUV5aRHfvPReILlTEXaoICOoKiDxEXgVXTSul1UCttmkNyzLNnHVNl90UdGuaNDvJJHd3fjPzu+fMOTPXYIhIRCISkYj8/8TC73tCNlrfkDi62sKrmRKnmSVO3SNxWrlP2bPZZ6OrEVucY3/8gRHaYap4RjaqiTKvaYpIx2ReA1Qi6N6SLVW3S/NqbttI3WR5Yb1XL6z32ohzEv9DmyJQL2IlXp1WBDpGeFXFWDs32p4OixQY4CEi0MVE0OplTsUk0/ukIx5HxVlwHRuB3vaf4GLfTXAP3PpHRQxi0Qd9yyy1HlnQpllMUT8mcdoizHVP5CROXZYv6sP45vtl51SLcxCGeiZmJeOeo2KsZscgi405FFEfJjyNn5VY/ib9BUXUa9CpsqTR2+0anVPC7vZRSEvPhVMnhu+ZbLfrKlSUNEyzshH0GomzPR+SnGyk84hIJ3Z/VT3Z1njpnpLYD56E+VFx0Nd17b5Xta3RDSVbqydlQZuw8NrrM7f0VSJov+8nDs/9bKXZYoMPP04Le+sHeybAKjs8skB/U0TrK4yc8qX9UUXULlvluqnhCzeCnDZs2gZvvhtzV+dHxUP8ilTYYbHCdxd+YZiU9dkBmLcWJ0Bs4lrQtGPMrmv1AXbUpfGfsLJoPeUOyDfcewOsxOlRROrOybE9YpA4LU0R6VT/uesh3ypm+RpIF8xQoTcwpVo95G7fC28vSYCszQUMsyjmIzBl5d/FqLajsInLY/+jfXteGYvjt6MWFdkhLjEFopethoHz4wE5+zuu4cGZkji63qCYaFdVWUtIclhT8xbGgv1AsL2o6CC8834itJ28xFakztE5w26HJbGr2PPadVmQLlqCYnScucJ8D1W7gut6bwsoJr3TQAT6Z1NtX0iCztoOFqDddSXIRhQKS+NWgU7r2bYP9gSuAq76mtRM9oxECwoPBMVwNY/4Xu7IuSBb4+E+kAXtD0YQf4QiWFJSDVHRK0MGxhrK2lwIW7ftgcRVG4Iwy5I+Y1vb2fYDI3H4UGuAfej8OKvvJXHJEKr2m2ruEFQEvdO+92RIgkKmAgujV7BiRsXDgGTmL4yFD1Z+zu6/5E95yMjeFVhDXdcZplw/Dt9UuRhB9MUYqWk5zGfB0uWwYHECVNtPh8xtL23G1thhkAV1AxYkFuZMUFLyF4yInyCfQWBr7tesJod6fdcRn0EYib/7nWm5yPBYGsrOclar/hjpvBmycwqhtLSGrW7I2u/4GYhIscusM+BRxiNtlZ1TeMT9oJG+G+y6wBMZzt220ZjHVm2ueOSALVAx0ZGCtIKH/V3kZSLSWzgM4GWJwBMN/WxrTjUNhUUwPikFJKLOCTvYPQ77JYeHiHScpNteCugmxKi+RgQ6ju2mteESdLZ+z+6rkb5fwyJYWdkE7acvz4prbXBD8ZaqSSLq1yy8/mLIfrwro/I5YtKr2bBQ3ODtcl0Ni5x7Doo5youOs2GBiLRKNtJnZ51qCK/G5ov6EBu3JIen+cgA65P/FqnB7nHAmPssDjZusVxGGjMrsWCitveIqH0rC9oUDpll5lqPo/wsnD46DOdbx+Bi/xwG1v6bDIs+6FtmPuwbWFlMWicbaZQhXDGLpU/Jgrqc8JpVMdEfcXxngyZPvcU5dt/ILzsndf/IL/tGfrQhxj/y54v6KMaQOFtCQZr+pOFBiWykj+HMJnFqssRpJvxAknltt/+j6c6z2WdTk/EAos8DIxSRiEQkIhEx/GfyF1ZepeYpIvIeAAAAAElFTkSuQmCC"
-                            alt="Java Logo" class="w-12 h-12 mr-4" loading="lazy">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg"
+                            alt="PHP Logo" class="w-12 h-12 mr-4" loading="lazy">
                         <span class="text-lg font-medium text-white">PHP</span>
                     </div>
                     <div class="tech-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 flex items-center justify-between">
-                        <img src="data:image/png;base64,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"
-                            alt="java-coffee-cup-logo--v1" loading="lazy">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                            alt="Java Logo" class="w-12 h-12 mr-4" loading="lazy">
                         <span class="text-lg font-medium text-white">Java</span>
                     </div>
                     <div class="tech-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 flex items-center justify-between">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADF0lEQVR4nO2YPWgUQRTHZ2dzM5dYaCFBAiaFNkZRBMUuiI0fRdBCwSZFolj4kWCSmRMJhyksBJVgI2qhhYIpFEREczPZmUSDSBo/kIAERWMnETQmSDRPdm89g4TczCXrXnD/8Jpr9ve7eTM7bxFKkiRJEoTAQTy3GWcEd7i8i7l4hZkYx0x+x1xMYi4+YCaeOlxecrncgbJZjMomHWJjAMwlmJbDxUN00lsZNzpC2XtVmMkxG/hCMTkU+0q4rH9nSfBhuZncrlgFMJfN4b85hk6JesRztZjLFxat1B2vABNteRB57c9vsstcQF4sC4HCCrTLOrsVkGUiUGI5iUDMkk4oAJq0gaYwq6ZA02egyL6lKgBBKToDmh4q/ekZb63D5eXwTTuxkHYpSUAH9RVkus6a3e2UjZjJb4sNXYIAgKJn7ejzx+Gi/+NzCJw3EyCjVvwOFz1RwwfFxLFAQJHT8wr45VWtMhbATLyJXkB8Ru2PqvMrQG8XFVBkjxl9q7cCczETscCEfxFEPvyTZdXBRi0u0GomwHPbo2kX+RMz+d5h8irqkGt+Pw40vVUUPl9nzNonIw9atsII5rIJdfbVBJOZYQAQBkUvGML7J9E5MwEujpqfIuImOv6AmkIXWkalDoCiw8bw+RbiZgJMtBgegf0o61UEUI8ra0DTHtDkLWj6wwpMmwqkm4wE3E6x16SfEetbF8B7FVtAk0+RQOtZNZjaZLbGTK43EBjKw6M0aPIucnhFJ2EYpcwE9ve6xd7CDhdXAgFFGiOH10HdQTZxmJBGdxhFTvwD+Gm/Ta0EMBNHjASK3WEWA17RZmQdnls+3/eeiAWmQNPXoMh18407R1wmdmMmpksWULQMxkUuG/zz/u+5YOkIFMmCW0jFLPmfCZAxGCD1oNOrQdHnS09AkcLnR9Ckq0wEaIuFwEfwUhtgMF0Lmr4MBbrjFQhaYgF7wKOHYxUwnmfn3sBfrAb1yASGURVocsMOnoyCTjegcgqoiq3+2AeK6PCKPRHeZcZB0RFQ9D4okoWBym3Qi9y4eZMkSYLKI78AoHyHJoxG8T4AAAAASUVORK5CYII="
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
                             alt="Python Logo" class="w-12 h-12 mr-4" loading="lazy">
                         <span class="text-lg font-medium text-white">Python</span>
                     </div>
@@ -224,14 +232,14 @@
                     </div>
 
                     <div class="tech-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 flex items-center justify-between">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACsklEQVR4nO2W0YqbQBSG8xBNGu9LMXvRVyhoF2I2FlrMA/RipzGwKO1VUSgb80QFXVYLfQKTvETS26jRS08Zs2nDEo0OM9ZAfjhXifB/Z/45c1qtiy76P/p9/bKzkrjZWuouVgNuux5wkFegi/mlCVvQhDnoggVfrzv1mL/pjlYSFxaZLg2gH8KIIeiCwt78gEvLmq8EoGeVMoN4ik3pzhMCAOhCAHf9NnWALPMVzZMBiPhuTKkDrKXuskaAOXWA1YCL6gMQQ/oABPknBtCFgDoAnvnnHSGJs+o7AfH+fMeoJmzgy9sXLRZa97sK84dMe/eRiflnEAF1AE3YMDd/ANFeDbjpWur6p8brCeMRaKKPM88sNsf0/QN0DBlmpgwLU4atKQPk1eF3bx6jDm/HM95JFrwdb3eVzHk7tvBvtZg33sPIHEJYZPoYwNVDMuo5cdhzEjhecXjlxAp78zKkZc3vATLzdpzmm092ZccpMwgcmyqd3xeORnHnk+cQwSsnpL+NPmUeqhbOfGnzzt840d9GDRmWZADJsioAbyf0VwljCBHhCUQEJxBSByDJP65K+Xf+3QP6ALuZX/0EnGTRiAiZMliEEbIITuD+jMdosnn9I2SzVpg3oBA9ZE6slH3I+IeY7UKHIQwZgioABxBBUed51ub3+taHtjGEqSmDf2q8Hn6HX1j8SPXsxMfjNRuxduLjzDOLzTGNH8cd5E1myFMXyFO3yJtAXrWaJuSqI+ROwiLTjQVAO/NpWfONAhjj2FTofOMAUJb5auYbBXDrqcvzBnDV6KwBEEH+bz2V/lZJqt3MrwjgTuhvlaS6dVWLIEL0t8oax+gG/UL1rQdl9PnnRCn1kOH/uGo9ixkJBL6chZ1vqvm9Pjl3beSqU+SqPh6v2Yh1VR9nvnGxueiiVq7+AFwg/qWc6gzXAAAAAElFTkSuQmCC"
-                            alt="figma--v1" loading="lazy">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                            alt="Figma Logo" class="w-12 h-12 mr-4" loading="lazy">
                         <span class="text-lg font-medium text-white">Figma</span>
                     </div>
 
                     <div class="tech-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 flex items-center justify-between">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHElEQVR4nO2WT0hUURTGz3HUGUSEUNL8FxYmQgWF4UJRRDAQlRYuoqyViButdiUi7WoT0sZoIVorCcHMSKQ0cSEKKZX2oGhhhbQRDZRAxL6483jebjNKEr65A+eDj4Fz7rw5v3nnnXeIRCKRyErBIdhkEgBHACAA+1GsC4YAOLEvGgLg2GMSAEcAIAD7UawLhgA4//uDvOMn3WZuYZhwsZaRlcFIDDCyDzOa6hmLz+IAYLyPEArqHP3hlBCH89YCbC8SCnJ1PJjMKD7mfnqx0tOMXx8sBXg7pOMJCYz3T934l3HC8TzGtSuM9TcW34HJRzqu2mjznT7/cz4OHuKvE2b8QjVj6dW/Xs8CAOXz5eaDGwoymhsZn0bjBGB5knCmOHICBQIuyMac5QDKqsiOFkZqSiTIqROM1RnLATyvTBPu3CBkppsQbZc5tgBq3u8F8Pec/zFL4fnvnc/L8hFATZGGKsbzBzr2ecwEGOnRucd3CSUnI+d99039neQknwAG7lH49e9Nk+tXGT1dhLKzZkuo3UedV/uPF6sqZXybcONrs4TKczqn3ta+AHx8oQF2c+FRvRrc7zDvDDMjJ9NcJZRvtfjYQq/7CWmp0YtXrfCy1+z9zta9gStKoo/SAwNQ/j5FaG9i5B9x57lakxtrGHOD0c/PDBAu1TGKCtx//1CaW/jD24Sthd2m2gEC+GESAEcA4CuASCQSkR/6DRH0JVWM43R/AAAAAElFTkSuQmCC"
-                            alt="javascript--v1" loading="lazy"> <span class="text-lg font-medium text-white">JS</span>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                            alt="JavaScript Logo" class="w-12 h-12 mr-4" loading="lazy"> <span class="text-lg font-medium text-white">JS</span>
                     </div>
 
                     <div class="tech-card bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 flex items-center justify-between">
@@ -256,9 +264,11 @@
 
                 </div>
             </div>
-   
+        </div>
+    </section>
+
     <!-- Seção Projetos com Carrossel Bootstrap -->
-    <section id="projects" class="py-16 bg-black border-t border-b border-red-900 pt-20">
+    <section id="projects" class="py-16 bg-black border-t border-b border-red-900">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center text-red-600" data-aos="fade-up">Projeto Destaque</h2>
             <div class="max-w-4xl mx-auto space-y-12" data-aos="fade-up">
@@ -304,11 +314,11 @@
                                 </div>
                                 <div class="github-links">
                                     <p>Código fonte:</p>
-                                    <a href="https://github.com/vinioff/CAT-Assist-Web.git" target="_blank" aria-label="Repositório Web do CAT-Assist">Repositório
+                                    <a href="https://github.com/vinioff/CAT-Assist-Web.git" target="_blank" rel="noopener noreferrer" aria-label="Repositório Web do CAT-Assist">Repositório
                                         Web</a>
                                     <br>
                                     <a href="https://github.com/vinioff/CAT-Assist-Mobile.git"
-                                        target="_blank" aria-label="Repositório Mobile do CAT-Assist">Repositório Mobile</a>
+                                        target="_blank" rel="noopener noreferrer" aria-label="Repositório Mobile do CAT-Assist">Repositório Mobile</a>
                                     <p class="mt-4 text-gray-400 text-sm italic">"Ei, explorador de códigos! Se você curtiu o CAT-Assist, dá uma olhada no meu GitHub: https://github.com/vinioff. Tem mais projetos incríveis esperando por você — quem sabe o próximo hit viral não está lá? 😼🚀"</p>
                                 </div>
                             </div>
@@ -372,7 +382,7 @@
                         <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">MySQL</span>
                         <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
                     </div>
-                    <a href="https://github.com/vinioff/sharksports" target="_blank" class="text-red-600 hover:underline" aria-label="Ver SharksSports no GitHub">Ver no GitHub</a>
+                    <a href="https://github.com/vinioff/sharksports" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:underline" aria-label="Ver SharksSports no GitHub">Ver no GitHub</a>
                 </div>
                 <!-- Projeto Cotações -->
                 <div class="bg-gray-800 p-8 rounded-xl shadow-sm text-white">
@@ -386,7 +396,7 @@
                         <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Pandas</span>
                         <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Power BI</span>
                     </div>
-                    <a href="https://github.com/vinioff/BI---Cota-o" target="_blank" class="text-red-600 hover:underline" aria-label="Ver Cotações no GitHub">Ver no GitHub</a>
+                    <a href="https://github.com/vinioff/BI---Cota-o" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:underline" aria-label="Ver Cotações no GitHub">Ver no GitHub</a>
                 </div>
             </div>
         </div>
@@ -407,7 +417,7 @@
                 <div class="mb-8 flex flex-col md:flex-row justify-between items-center w-full right-timeline">
                     <div class="order-1 w-full md:w-5/12"></div>
                     <div class="z-20 flex items-center order-1 bg-red-600 shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                        <span class="mx-auto font-semibold text-lg text-white">1</span>
                     </div>
                     <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4 text-white">
                         <h3 class="mb-1 font-bold text-lg text-red-600">Ensino Superior, Análise e Desenvolvimento de Sistemas</h3>
@@ -424,7 +434,7 @@
                         <p class="text-sm text-gray-400">Concluído em dezembro de 2024</p>
                     </div>
                     <div class="z-20 flex items-center order-1 bg-red-600 shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto font-semibold text-lg text-white">2</h1>
+                        <span class="mx-auto font-semibold text-lg text-white">2</span>
                     </div>
                     <div class="order-1 w-full md:w-5/12"></div>
                 </div>
@@ -433,7 +443,7 @@
                 <div class="mb-8 flex flex-col md:flex-row justify-between items-center w-full right-timeline">
                     <div class="order-1 w-full md:w-5/12"></div>
                     <div class="z-20 flex items-center order-1 bg-red-600 shadow-xl w-8 h-8 rounded-full">
-                        <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
+                        <span class="mx-auto font-semibold text-lg text-white">3</span>
                     </div>
                     <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4 text-white">
                         <h3 class="mb-1 font-bold text-lg text-red-600">Ensino Médio completo</h3>
@@ -451,7 +461,7 @@
                     <div class="space-y-4">
                                                 <div class="border-b pb-4 border-gray-600 flex items-start">
                           <img src="img/aws (3).png" alt="AWS Logo" class="logo-aws mr-4 flex-shrink-0" loading="lazy">
-                            <a href="https://www.credly.com/badges/c637e860-2aa5-46b0-b044-7cf2e80bab2f/public_url" target="_blank" aria-label="Ver certificado AWS Cloud Foundation" class="flex-grow">
+                            <a href="https://www.credly.com/badges/c637e860-2aa5-46b0-b044-7cf2e80bab2f/public_url" target="_blank" rel="noopener noreferrer" aria-label="Ver certificado AWS Cloud Foundation" class="flex-grow">
                                 <h4 class="font-semibold text-red-600">AWS Cloud Security Foundations <span class="text-green-500 text-xs">(Verificado)</span></h4>
                                 <p class="text-sm text-gray-400">AWS Academy Graduate | Concluído em Outubro de 2025</p>
                                 <p class="text-xs text-gray-500 mt-1">O Curso de Aperfeiçoamento Profissional AWS Academy Cloud Security Foundations tem por objetivo o desenvolvimento de competências relativas à segurança na nuvem, abrangendo princípios de cibersegurança, gerenciamento de identidade e acesso, criptografia, segurança de rede e conformidade, por meio dos conteúdos formativos da AWS Academy, possibilitando que o profissional pleiteie a certificação AWS Certified Cloud Practitioner com ênfase em segurança.</p>
@@ -459,7 +469,7 @@
                         </div>
                         <div class="border-b pb-4 border-gray-600 flex items-start">
                           <img src="img/aws (3).png" alt="AWS Logo" class="logo-aws mr-4 flex-shrink-0" loading="lazy">
-                            <a href="https://www.credly.com/badges/0276a7f3-5436-4773-ae4c-e8636eb13e4d/public_url" target="_blank" aria-label="Ver certificado AWS Cloud Foundations Security" class="flex-grow">
+                            <a href="https://www.credly.com/badges/0276a7f3-5436-4773-ae4c-e8636eb13e4d/public_url" target="_blank" rel="noopener noreferrer" aria-label="Ver certificado AWS Cloud Foundations Security" class="flex-grow">
                                 <h4 class="font-semibold text-red-600">AWS Cloud Foundations <span class="text-green-500 text-xs">(Verificado)</span></h4>
                                 <p class="text-sm text-gray-400">AWS Academy Graduate | Concluído em Outubro de 2025</p>
                                 <p class="text-xs text-gray-500 mt-1">O Curso de Aperfeiçoamento Profissional AWS Academy Cloud Foundations tem por objetivo o desenvolvimento de competências relativas aos conceitos fundamentais de computação em nuvem, incluindo serviços principais da AWS, segurança, arquitetura, precificação e suporte, por meio dos conteúdos formativos da AWS Academy, possibilitando que o profissional pleiteie a certificação AWS Certified Cloud Practitioner.</p>
@@ -467,7 +477,7 @@
                         </div>
                         <div class="border-b pb-4 border-gray-600 flex items-start">
                             <img src="img/icon.png" alt="SENAI Logo" class="mr-4 h-12 w-auto flex-shrink-0" loading="lazy">
-                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=12325173641/15250493" target="_blank" aria-label="Ver certificado Microsoft Power BI" class="flex-grow">
+                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=12325173641/15250493" target="_blank" rel="noopener noreferrer" aria-label="Ver certificado Microsoft Power BI" class="flex-grow">
                                 <h4 class="font-semibold text-red-600">Microsoft Power BI - 32h <span class="text-green-500 text-xs">(Verificado)</span></h4>
                                 <p class="text-sm text-gray-400">SENAI Armando de Arruda Pereira | Concluído em agosto de 2025</p>
                                 <p class="text-xs text-gray-500 mt-1">Preparação de dados, criação de modelos ETL, visualização de dados e desenvolvimento de competências analíticas.</p>
@@ -475,7 +485,7 @@
                         </div>
                           <div class="border-b pb-4 border-gray-600 flex items-start">
                             <img src="img/icon.png" alt="SENAI Logo" class="mr-4 h-12 w-auto flex-shrink-0" loading="lazy">
-                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=12326174500/15557469" target="_blank" aria-label="Ver certificado Microsoft Power BI" class="flex-grow">
+                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=12326174500/15557469" target="_blank" rel="noopener noreferrer" aria-label="Ver certificado Microsoft Power BI" class="flex-grow">
                                 <h4 class="font-semibold text-red-600">EXCEL AVANÇADO - 40H <span class="text-green-500 text-xs">(Verificado)</span></h4>
                                 <p class="text-sm text-gray-400">SENAI Armando de Arruda Pereira | Concluído em Fevereiro de 2026</p>
                                 <p class="text-xs text-gray-500 mt-1">Estruturação, tratamento e proteção de dados, modelagem de cálculos com funções complexas aninhadas, análise e visualização via tabelas e gráficos dinâmicos e automação de processos através de Macros e VBA.</p>
@@ -483,7 +493,7 @@
                         </div>
                         <div class="border-b pb-4 border-gray-600 flex items-start">
                             <img src="img/icon.png" alt="SENAI Logo" class="mr-4 h-12 w-auto flex-shrink-0" loading="lazy">
-                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=00029068/7212152" target="_blank" aria-label="Ver certificado Desvendando a Blockchain" class="flex-grow">
+                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=00029068/7212152" target="_blank" rel="noopener noreferrer" aria-label="Ver certificado Desvendando a Blockchain" class="flex-grow">
                                 <h4 class="font-semibold text-red-600">Desvendando a Blockchain - 20h <span class="text-green-500 text-xs">(Verificado)</span></h4>
                                 <p class="text-sm text-gray-400">SENAI A. Jacob Lafer | Concluído em outubro de 2024</p>
                                 <p class="text-xs text-gray-500 mt-1">Definição e componentes da Blockchain, análise de funcionamento e aplicações práticas.</p>
@@ -492,7 +502,7 @@
 
                         <div class="border-b pb-4 border-gray-600 flex items-start">
                             <img src="img/icon.png" alt="SENAI Logo" class="mr-4 h-12 w-auto flex-shrink-0" loading="lazy">
-                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=00029075/7212152" target="_blank" aria-label="Ver certificado Web 3.0" class="flex-grow">
+                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=00029075/7212152" target="_blank" rel="noopener noreferrer" aria-label="Ver certificado Web 3.0" class="flex-grow">
                                 <h4 class="font-semibold text-red-600">Web 3.0 - 20h <span class="text-green-500 text-xs">(Verificado)</span></h4>
                                 <p class="text-sm text-gray-400">SENAI A. Jacob Lafer | 04/03/2024 a 31/10/2024</p>
                                 <p class="text-xs text-gray-500 mt-1">História da Internet, Web Semântica, Digital Twin, DAO, DApps, Metaverso e Realidades Virtuais.</p>
@@ -500,7 +510,7 @@
                         </div>
                         <div class="border-b pb-4 border-gray-600 flex items-start">
                             <img src="img/icon.png" alt="SENAI Logo" class="mr-4 h-12 w-auto flex-shrink-0" loading="lazy">
-                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=00021791/7212152" target="_blank" aria-label="Ver certificado Desvendando o 5G" class="flex-grow">
+                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=00021791/7212152" target="_blank" rel="noopener noreferrer" aria-label="Ver certificado Desvendando o 5G" class="flex-grow">
                                 <h4 class="font-semibold text-red-600">Desvendando o 5G - 15h <span class="text-green-500 text-xs">(Verificado)</span></h4>
                                 <p class="text-sm text-gray-400">SENAI A. Jacob Lafer | 02/05/2023 a 26/05/2023</p>
                                 <p class="text-xs text-gray-500 mt-1">Histórico das gerações celulares, elementos do 5G, arquiteturas e status de implantação.</p>
@@ -508,7 +518,7 @@
                         </div>
                         <div class="border-b pb-4 border-gray-600 flex items-start">
                             <img src="img/icon.png" alt="SENAI Logo" class="mr-4 h-12 w-auto flex-shrink-0" loading="lazy">
-                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=00021789/7212152" target="_blank" aria-label="Ver certificado LGPD" class="flex-grow">
+                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=00021789/7212152" target="_blank" rel="noopener noreferrer" aria-label="Ver certificado LGPD" class="flex-grow">
                                 <h4 class="font-semibold text-red-600">Privacidade e Proteção de Dados (LGPD) - 4h <span class="text-green-500 text-xs">(Verificado)</span></h4>
                                 <p class="text-sm text-gray-400">SENAI A. Jacob Lafer | 02/05/2023 a 26/05/2023</p>
                                 <p class="text-xs text-gray-500 mt-1">Direitos dos titulares, deveres das empresas, governança de dados e sanções.</p>
@@ -516,7 +526,7 @@
                         </div>
                         <div class="border-b pb-4 border-gray-600 flex items-start">
                             <img src="img/icon.png" alt="SENAI Logo" class="mr-4 h-12 w-auto flex-shrink-0" loading="lazy">
-                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=00025743/7212152" target="_blank" aria-label="Ver certificado Segurança Cibernética" class="flex-grow">
+                            <a href="https://www.sp.senai.br/consulta-certificado?qrcode=00025743/7212152" target="_blank" rel="noopener noreferrer" aria-label="Ver certificado Segurança Cibernética" class="flex-grow">
                                 <h4 class="font-semibold text-red-600">Segurança Cibernética - 8h <span class="text-green-500 text-xs">(Verificado)</span></h4>
                                 <p class="text-sm text-gray-400">SENAI A. Jacob Lafer | 02/02/2024</p>
                                 <p class="text-xs text-gray-500 mt-1">Engenharia social, ameaças cibernéticas e segurança em dispositivos e serviços.</p>
@@ -531,7 +541,7 @@
 </section>
 
      <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-black border-t border-b border-red-900 pt-20">
+    <section id="contact" class="py-16 bg-black border-t border-b border-red-900">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center text-red-600" data-aos="fade-up">Contato</h2>
 
@@ -544,14 +554,14 @@
                                 <i data-feather="phone" class="text-red-500 mr-4 mt-1"></i>
                                 <div>
                                     <h4 class="font-medium text-red-600">Telefone</h4>
-                                    <p class="text-gray-400"><a href="tel:+5511947910845" target="_blank" aria-label="Ligar para +55 11 94791-0845">+55 11 94791-0845</a></p>
+                                    <p class="text-gray-400"><a href="tel:+5511947910845" target="_blank" rel="noopener noreferrer" aria-label="Ligar para +55 11 94791-0845">+55 11 94791-0845</a></p>
                                 </div>
                             </div>
                             <div class="flex items-start">
                                 <i data-feather="mail" class="text-red-500 mr-4 mt-1"></i>
                                 <div>
                                     <h4 class="font-medium text-red-600">Email</h4>
-                                    <p class="text-gray-400"><a href="mailto:viniciusvieiradacosta33@gmail.com" target="_blank" aria-label="Enviar email para viniciusvieiradacosta33@gmail.com">viniciusvieiradacosta33@gmail.com</a></p>
+                                    <p class="text-gray-400"><a href="mailto:viniciusvieiradacosta33@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Enviar email para viniciusvieiradacosta33@gmail.com">viniciusvieiradacosta33@gmail.com</a></p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -559,14 +569,14 @@
                                 <div>
                                     <h4 class="font-medium text-red-600">LinkedIn</h4>
                                     <p class="text-gray-400"><a href="https://linkedin.com/in/vinicius-vieira-da-costa"
-                                            target="_blank" aria-label="Perfil no LinkedIn">linkedin.com/in/vinicius-vieira-da-costa</a></p>
+                                            target="_blank" rel="noopener noreferrer" aria-label="Perfil no LinkedIn">linkedin.com/in/vinicius-vieira-da-costa</a></p>
                                 </div>
                             </div>
                             <div class="flex items-start">
                                 <i data-feather="github" class="text-red-500 mr-4 mt-1"></i>
                                 <div>
                                     <h4 class="font-medium text-red-600">GitHub</h4>
-                                    <p class="text-gray-400"><a href="https://github.com/vinioff" target="_blank" aria-label="Perfil no GitHub">github.com/vinioff</a></p>
+                                    <p class="text-gray-400"><a href="https://github.com/vinioff" target="_blank" rel="noopener noreferrer" aria-label="Perfil no GitHub">github.com/vinioff</a></p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -601,22 +611,22 @@
                     <p class="text-gray-500">Desenvolvedor Full-Stack & BI</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="https://www.linkedin.com/in/vinicius-vieira-da-costa/" target="_blank"
+                    <a href="https://www.linkedin.com/in/vinicius-vieira-da-costa/" target="_blank" rel="noopener noreferrer"
                         class="text-gray-400 hover:text-white transition" aria-label="LinkedIn">
                         <i data-feather="linkedin"></i>
                     </a>
-                    <a href="https://github.com/vinioff" target="_blank"
+                    <a href="https://github.com/vinioff" target="_blank" rel="noopener noreferrer"
                         class="text-gray-400 hover:text-white transition" aria-label="GitHub">
                         <i data-feather="github"></i>
                     </a>
-                    <a href="mailto:viniciusvieiradacosta33@gmail.com" target="_blank"
+                    <a href="mailto:viniciusvieiradacosta33@gmail.com" target="_blank" rel="noopener noreferrer"
                         class="text-gray-400 hover:text-white transition" aria-label="Email">
                         <i data-feather="mail"></i>
                     </a>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500">
-                <p>&copy; 2025 Vinicius Vieira. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Vinicius Vieira. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -633,6 +643,17 @@
             once: true
         });
         feather.replace();
+
+        // Menu mobile
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Fechar menu ao clicar em um link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
 
         // Lógica para o botão voltar ao topo
         const backToTop = document.querySelector('.back-to-top');

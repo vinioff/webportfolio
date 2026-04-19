@@ -2,9 +2,6 @@
 width: 90%;
 margin: 0 auto;
 }
-#projects .bg-gray-800 {
-border-radius: 0 !important; /* Makes the project boxes fully rectangular */
-}
 #projects img {
 max-width: 100%;
 height: auto;
@@ -12,8 +9,8 @@ display: block;
 margin: 0 auto; /* Centers images */
 }
 #projects .grid {
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Better responsive layout for images /
-gap: 1rem; / Adjusted gap for better visualization */
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Better responsive layout for images */
+gap: 1rem; /* Adjusted gap for better visualization */
 }
 #projects .github-links {
 margin-top: 1.5rem;
@@ -27,11 +24,11 @@ transition: color 0.3s ease;
 #projects .github-links a:hover {
 color: #cc0000;
 }
-/* GIF specific styling to preserve near-square aspect ratio /
+/* GIF specific styling to preserve near-square aspect ratio */
 #projects .gif-container {
 position: relative;
 width: 100%;
-padding-top: 100.49%; / 1018/1013 ≈ 100.49% for aspect ratio */
+padding-top: 100.49%; /* 1018/1013 ≈ 100.49% for aspect ratio */
 overflow: hidden;
 }
 #projects .gif-container img {
@@ -42,7 +39,7 @@ width: 100%;
 height: 100%;
 object-fit: contain;
 }
-/* Rest of the original CSS remains unchanged */
+
 .gradient-text {
 background: linear-gradient(90deg, #ff0000, #800080);
 -webkit-background-clip: text;
@@ -66,7 +63,7 @@ border: 1px solid #800080;
 .tech-card:hover, .soft-card:hover {
 transform: translateY(-2px);
 box-shadow: 0 4px 6px rgba(255, 0, 0, 0.3);
-background-color: #3d3d2d;
+background-color: #3d3d3d;
 }
 .tech-card:focus, .soft-card:focus {
 outline: none;
@@ -139,11 +136,7 @@ border-color: #800080 !important;
 }
 .text-blue-500 {
 color: #ff0000 !important;
-}
-.bg-blue-100 {
-background-color: #3d3d3d !important;
-}
-.logo-sesi{
+}.logo-sesi{
 width: 140px;
 height: 140px;
 }
@@ -187,11 +180,6 @@ height: 130px;
 }
 
 /* ------------------ RESPONSIVIDADE DA SEÇÃO DE CONTATO ------------------ */
-#contact .bg-gray-800 {
-  margin: 0 auto;
-  padding: 1.5rem;
-  border-radius: 1rem;
-}
 
 @media (max-width: 768px) {
   #contact .grid {

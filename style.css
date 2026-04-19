@@ -137,17 +137,16 @@ border-color: #800080 !important;
 .text-blue-500 {
 color: #ff0000 !important;
 }.logo-sesi{
-width: 140px;
-height: 140px;
+width: 90px;
+height: 90px;
 }
 .logos{
 width: 48px;
 height: 48px;
 }
 .logo-aws{
-width: 130px;
-height: 130px;
-
+width: 90px;
+height: 90px;
 }
 /* ------------------ RESPONSIVIDADE DAS CERTIFICAÇÕES ------------------ */
 #education .space-y-4 > div {
@@ -270,77 +269,117 @@ height: 130px;
   */
 }
 
-/* ===================== AJUSTES: Formação (mobile + estética) ===================== */
-/* Tornar a timeline amigável no mobile — empilhar os blocos, centralizar bolinha numerada */
+/* ===================== CARDS DE EXPERIÊNCIA ===================== */
+.experience-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.experience-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 0, 0, 0.2);
+}
+.exp-logo {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  flex-shrink: 0;
+}
+@media (max-width: 480px) {
+  .exp-logo {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+  }
+}
+
+
 @media (max-width: 768px) {
 
-  /* Cada item da timeline vira coluna e centraliza conteúdo */
+  /* Esconde a linha vertical central — não faz sentido no mobile */
+  #education .relative > .absolute {
+    display: none;
+  }
+
+  /* Cada item da timeline vira coluna centralizada */
   #education .relative .mb-8 {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    gap: 0.6rem;
+    gap: 0;
+    padding: 0 0.5rem;
+    margin-bottom: 1.25rem !important;
   }
 
-  /* Centraliza a bolinha com número e reduz o tamanho para ficar proporcional */
-  #education .relative .z-20 {
-    margin: 0.4rem auto;
+  /* Esconde os divs espaçadores vazios (usados só no layout desktop alternado) */
+  #education .right-timeline > div:first-child,
+  #education .left-timeline > div:last-child {
+    display: none !important;
+  }
+
+  /* Garante que o círculo numerado apareça SEMPRE primeiro */
+  #education .right-timeline .z-20,
+  #education .left-timeline .z-20 {
+    order: -1;
+    margin: 0 0 0.6rem 0;
     width: 40px;
     height: 40px;
+    min-width: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 18px rgba(255, 0, 0, 0.12);
-  }
-  #education .relative .z-20 h1 {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1;
   }
 
-  /* Os cards ocupam 100% do espaço disponível (com um max-width para não ficarem enormes) */
-  #education .relative .bg-gray-800 {
+  /* Cards ocupam toda a largura disponível */
+  #education .right-timeline > .bg-gray-800,
+  #education .left-timeline > .bg-gray-800 {
     width: 100% !important;
-    max-width: 520px;
-    margin: 0.25rem auto;
-    padding: 1rem;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
     border-radius: 12px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+    border-left: 3px solid #cc0000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   }
 
-  /* Ajusta o logo do SESI/SENAI para não estourar o card */
-  #education .relative .logo-sesi, 
-  #education .relative .logo-aws {
-    width: 120px;
-    height: auto;
+  /* Logo SENAI/SESI menor dentro dos cards */
+  #education .right-timeline .logo-sesi,
+  #education .left-timeline .logo-sesi {
+    width: 72px !important;
+    height: auto !important;
+    margin: 0 auto 0.25rem !important;
     display: block;
-    margin: 0.4rem auto 0.2rem auto;
   }
 
-  /* Texto dentro do card — tamanho e espaçamento mais agradável no mobile */
-  #education .relative .bg-gray-800 h3 {
-    font-size: 1.05rem;
-    margin-bottom: 0.4rem;
-  }
-  #education .relative .bg-gray-800 p {
+  /* Texto do card */
+  #education .right-timeline .bg-gray-800 h3,
+  #education .left-timeline .bg-gray-800 h3 {
     font-size: 0.95rem;
-    margin: 0;
+    margin-bottom: 0.35rem;
+    line-height: 1.3;
   }
+  #education .right-timeline .bg-gray-800 p,
+  #education .left-timeline .bg-gray-800 p {
+    font-size: 0.82rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+}
 
-  /* Espaçamento entre os itens da timeline */
-  #education .max-w-4xl .space-y-8 {
-    gap: 1rem;
+/* Telas muito pequenas (< 400px) */
+@media (max-width: 400px) {
+  #education .right-timeline > .bg-gray-800,
+  #education .left-timeline > .bg-gray-800 {
+    padding: 0.85rem 1rem;
+  }
+  #education .right-timeline .bg-gray-800 h3,
+  #education .left-timeline .bg-gray-800 h3 {
+    font-size: 0.875rem;
   }
 }
 
 /* Melhora contraste e separação entre cards no mobile */
 @media (max-width: 480px) {
-  #education .relative .bg-gray-800, 
-  #contact .bg-gray-800 {
-    padding: 0.9rem;
-  }
   #contact .bg-gray-800 .space-y-4 i[data-feather] {
     min-width: 28px;
     min-height: 28px;

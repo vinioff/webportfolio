@@ -292,8 +292,10 @@ height: 90px;
   object-fit: cover;
   display: block;
 }
-.exp-logo-wrap.bg-black img { object-fit: contain; }
-.exp-logo-wrap.bg-white img { object-fit: contain; }
+.exp-logo-wrap.bg-black img { object-fit: contain;
+border-radius: 20px;  }
+.exp-logo-wrap.bg-white img { object-fit: contain;
+border-radius: 20px; }
 .exp-text { min-width: 0; flex: 1; }
 @media (max-width: 480px) {
   .exp-logo-wrap { width: 56px; height: 56px; min-width: 56px; }

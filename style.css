@@ -277,6 +277,16 @@ height: 90px;
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(255, 0, 0, 0.2);
 }
+/* RVInfo usa a cor roxa da própria marca, em vez do vermelho padrão do site */
+.exp-card-rvinfo {
+  border-left-color: #762dd4 !important;
+}
+.exp-card-rvinfo.shadow-xl {
+  box-shadow: 0 10px 25px rgba(118, 45, 212, 0.35) !important;
+}
+.exp-card-rvinfo:hover {
+  box-shadow: 0 12px 30px rgba(118, 45, 212, 0.3) !important;
+}
 .exp-logo-wrap {
   width: 72px;
   height: 72px;
@@ -304,20 +314,24 @@ border-radius: 20px; }
 
 @media (max-width: 768px) {
 
-  /* Esconde a linha vertical central — não faz sentido no mobile */
+  /* Linha do tempo: alinhada à esquerda, acompanhando os círculos, em vez de escondida */
   #education .relative > .absolute {
-    display: none;
+    display: block !important;
+    left: 19px !important;
+    width: 2px !important;
+    transform: none !important;
+    background: linear-gradient(to bottom, rgba(204, 0, 0, 0) 0%, rgba(204, 0, 0, 0.55) 6%, rgba(204, 0, 0, 0.55) 94%, rgba(204, 0, 0, 0) 100%) !important;
   }
 
-  /* Cada item da timeline vira coluna centralizada */
+  /* Cada item vira uma linha: círculo à esquerda + card ao lado, sempre na mesma ordem */
   #education .relative .mb-8 {
     display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 0;
-    padding: 0 0.5rem;
-    margin-bottom: 1.25rem !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 0.75rem;
+    padding: 0;
+    margin-bottom: 1.75rem !important;
   }
 
   /* Esconde os divs espaçadores vazios (usados só no layout desktop alternado) */
@@ -326,11 +340,11 @@ border-radius: 20px; }
     display: none !important;
   }
 
-  /* Garante que o círculo numerado apareça SEMPRE primeiro */
+  /* Garante que o círculo numerado fique sempre na coluna da esquerda, sobre a linha */
   #education .right-timeline .z-20,
   #education .left-timeline .z-20 {
     order: -1;
-    margin: 0 0 0.6rem 0;
+    margin: 0 !important;
     width: 40px;
     height: 40px;
     min-width: 40px;
@@ -338,27 +352,33 @@ border-radius: 20px; }
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
   }
 
-  /* Cards ocupam toda a largura disponível */
+  /* Card ocupa o espaço restante ao lado da linha */
   #education .right-timeline > .bg-gray-800,
   #education .left-timeline > .bg-gray-800 {
-    width: 100% !important;
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 1rem 1.25rem;
+    width: auto !important;
+    max-width: none;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 0.9rem 1.1rem;
     border-radius: 12px;
     border-left: 3px solid #cc0000;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   }
 
-  /* Logo SENAI/SESI menor dentro dos cards */
+  /* Logo SENAI/SESI alinhada com o texto, do mesmo tamanho do ícone do SENAI */
   #education .right-timeline .logo-sesi,
   #education .left-timeline .logo-sesi {
-    width: 72px !important;
-    height: auto !important;
-    margin: 0 auto 0.25rem !important;
-    display: block;
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0 0.5rem 0 0 !important;
+    display: inline-block;
+    flex-shrink: 0;
   }
 
   /* Texto do card */

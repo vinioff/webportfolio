@@ -277,7 +277,8 @@ height: 90px;
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(255, 0, 0, 0.2);
 }
-/* RVInfo usa a cor roxa da própria marca, em vez do vermelho padrão do site */
+
+/* RVInfo usa a cor roxa da própria marca, em vez do vermelho padrão do site  */
 .exp-card-rvinfo {
   border-left-color: #762dd4 !important;
 }
